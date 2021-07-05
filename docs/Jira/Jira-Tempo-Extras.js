@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AC-Internal-Addons
+// @name         Jira-Temp-Extras
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -11,7 +11,7 @@
 
 (function () {
     'use strict';
-    console.log('Running AC-Internal-Addons');
+    console.log('Running Jira-Temp-Extras');
 
     var isIssueCardPage = false;
     var isReportPage = false;
