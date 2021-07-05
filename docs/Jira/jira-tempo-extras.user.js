@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Jira-Temp-Extras
+// @name         Jira-Tempo-Extras
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Add extra features to Tempo on Jira, like total days left
@@ -11,7 +11,7 @@
 
 (function () {
     'use strict';
-    console.log('Running Jira-Temp-Extras');
+    console.log('Running Jira-Tempo-Extras');
 
     var isIssueCardPage = false;
     var isReportPage = false;
@@ -43,7 +43,7 @@
 
                 clearInterval(checkExist);
             }
-        }, 1000); // check every 100ms
+        }, 1000); // check every 1000ms
     };
 
 
