@@ -2,8 +2,8 @@
 // @name         Jira-Temp-Extras
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @description  Add extra features to Tempo on Jira, like total days left
+// @author       Mark Richardson
 // @match        https://*/jira/secure/Tempo.jspa*
 // @icon         https://www.google.com/s2/favicons?domain=github.com
 // @grant        none
