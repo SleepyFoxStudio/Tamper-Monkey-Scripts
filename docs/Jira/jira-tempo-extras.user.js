@@ -131,7 +131,7 @@
                     console.log(`${issueKey} daysPurchased is null, so returning`);
                     return;
                 }
-                updateDaysRemaining(issueKey,daysPurchased,created, element);
+                updateDaysRemaining(issueKey, daysPurchased, created, element);
 
             }
         };
@@ -141,31 +141,31 @@
         xhr.send(data);
     }
 
-function simpleIsoDate(myDate)
-    {
-var year = myDate.getFullYear();
-var month = myDate.getMonth()+1;
-var dt = myDate.getDate();
+    function simpleIsoDate(myDate) {
+        var year = myDate.getFullYear();
+        var month = myDate.getMonth() + 1;
+        var dt = myDate.getDate();
 
-if (dt < 10) {
-  dt = '0' + dt;
-}
-if (month < 10) {
-  month = '0' + month;
-}
+        if (dt < 10) {
+            dt = '0' + dt;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
 
-return year+'-' + month + '-'+dt;
+        return year + '-' + month + '-' + dt;
     }
 
 
-    function updateDaysRemaining(issueKey,daysPurchased,created, element) {
+    function updateDaysRemaining(issueKey, daysPurchased, created, element) {
         var url = "/jira/rest/tempo-timesheets/4/worklogs/search";
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url);
 
-        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Accept", "application/json, application/vnd-ms-excel");
         xhr.setRequestHeader("Content-Type", "application/json");
+
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
@@ -180,7 +180,7 @@ return year+'-' + month + '-'+dt;
 
                 console.log(`${issueKey} days purchased : ${daysPurchased}, and timeSpentDays: ${timeSpentDays}`);
 
-                
+
                 var daysRemaining = daysPurchased - timeSpentDays;
                 console.log(`Days remaining = ${daysRemaining} for ${issueKey}`);
                 if (isIssueCardPage) {
@@ -196,8 +196,15 @@ return year+'-' + month + '-'+dt;
 
 
         var today = new Date();
-        var toDate = new Date(today.setMonth(today.getMonth()+1))
-        var data = `{"from": "${simpleIsoDate(created)}", "to": "${simpleIsoDate(toDate)}", "taskKey": ["${issueKey}"]}`;
+        var toDate = new Date(today.setMonth(today.getMonth() + 1))
+        var data = JSON.stringify({
+            from: simpleIsoDate(created),
+            to: simpleIsoDate(toDate),
+            taskKey: [issueKey]
+        });
+
+        //TODO: switch this to do multiple lookups at once 
+        // {from: "2021-08-07", to: "2021-10-27", taskKey: ["ISS-123", "ISS-234"]}
 
         xhr.send(data);
         return;
