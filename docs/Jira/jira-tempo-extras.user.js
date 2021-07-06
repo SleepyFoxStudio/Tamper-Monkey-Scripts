@@ -6,6 +6,7 @@
 // @author       Mark Richardson
 // @match        https://*/jira/secure/Tempo.jspa*
 // @icon         https://www.google.com/s2/favicons?domain=github.com
+// @updateURL    https://github.com/SleepyFoxStudio/Tamper-Monkey-Scripts/raw/master/docs/Jira/jira-tempo-extras.user.js
 // @grant        none
 // ==/UserScript==
 
@@ -114,7 +115,7 @@
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url);
 
-        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Accept", "application/json, application/vnd-ms-excel");
         xhr.setRequestHeader("Content-Type", "application/json");
 
         xhr.onreadystatechange = function () {
