@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira-Tempo-Extras
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Add extra features to Tempo on Jira, like total days left
 // @author       Mark Richardson
 // @match        https://*/jira/secure/Tempo.jspa*
